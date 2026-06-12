@@ -303,6 +303,115 @@ footer{
     grid-column: 1 / -1;
 }
 
-.btn{
-    background-color:red;
-}
+    .btn {
+        background-color: red;
+        border: none;
+    }
+
+    .btn:hover {
+        background-color: #d10000;
+        color: #fff;
+    }
+
+    .filter {
+        min-width: 130px;
+        padding: 0.75rem 1rem;
+        background: #fff;
+        border-radius: 1rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .filter:hover {
+        transform: translateY(-3px);
+    }
+
+    .tax-switch {
+        min-width: 180px;
+        justify-content: center;
+    }
+
+    .listing-image {
+        height: auto;
+        max-height: 600px;
+        width: 100%;
+    }
+
+    .listing-info {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .listing-actions {
+        flex-wrap: wrap;
+    }
+
+    .review-form {
+        width: 100%;
+    }
+
+    .starability-result {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    @media (max-width: 992px) {
+        .listing-card {
+            margin-bottom: 1.5rem;
+        }
+
+        .cards-container,
+        .reviews-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .review-card {
+            min-height: auto;
+        }
+    }
+
+    @media (max-width: 768px) {
+        body {
+            padding: 0 0.5rem;
+        }
+
+        .container {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .navbar .navbar-nav {
+            width: 100%;
+        }
+
+        .filter {
+            min-width: 120px;
+            margin-right: 0.75rem;
+        }
+
+        #filters {
+            overflow-x: auto;
+            gap: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+
+        .card.col-12.col-lg-8.offset-lg-2 {
+            padding: 1rem;
+        }
+
+        .review-form {
+            gap: 1rem;
+        }
+
+        .starability-heartbeat {
+            width: 100%;
+            justify-content: flex-start;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .listing-details-title {
+            font-size: 1.75rem;
+        }
