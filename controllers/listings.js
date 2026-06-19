@@ -1,9 +1,19 @@
 const Listing=require("../models/listing");
 const Review=require("../models/review");
 
-module.exports.index= async(req,res)=>{
-    const allListings=await Listing.find({});
-    res.render("listings/index.ejs",{allListings});
+function escapeRegex(text) {
+    return text.replace(/[-\\[\]{}()*+?.,\\\\^$|#\s]/g, '\\$&');
+}
+
+module.exports.index = async (req, res) => {
+    const { search } = req.query;
+    let query = {};
+    if (search && search.trim() !== '') {
+        const regex = new RegExp(escapeRegex(search.trim()), 'i');
+        query = { $or: [{ location: regex }, { title: regex }, { country: regex }] };
+    }
+    const allListings = await Listing.find(query);
+    res.render('listings/index.ejs', { allListings, search: search || '' });
 };
 
 module.exports.renderNewform=(req,res)=>{
